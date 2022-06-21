@@ -24,7 +24,7 @@ Route::view('issues','issues.index');
 Route::post('issues/store','IssuesController@store');
 
 // for Searching and showing data from issue table
-Route::post('/searchissue','IssuesController@search');
+//Route::post('/searchissue','IssuesController@search');
 
 // for showing test view in case of not login to page
 Route::get('test','IssuesController@test');
