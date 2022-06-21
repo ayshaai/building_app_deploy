@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Issue;
 use App\Mail\IssueRequsetSubmited;
 //
+use App\Imports\IssuesImport;
+use Maatwebsite\Excel\Facades\Excel;
+//
 use App\User;
 use Auth;
 class IssuesController extends Controller
@@ -50,5 +53,16 @@ class IssuesController extends Controller
     public function search(){
         $data['issues']=user::where();
         return view('issues.search',$data);
+    }
+
+
+    public function importfromxlsx(Request $request) 
+
+    {
+         // Validation
+
+        Excel::import(new IssuesImport, $request->excelFile);
+        
+        return "Data import successfully";
     }
 }

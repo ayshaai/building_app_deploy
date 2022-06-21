@@ -48,3 +48,8 @@ Route::get('/custom/login/{id}', 'CustomAuthController@Customlogin');
 
 //to show view of export excel
 Route::get('users', 'UsersController@export');
+
+// for import data of issue to xlsx
+Route::post('/issues/import','IssuesController@importfromxlsx');
+Route::view('issues-form','excel-import');
+//
