@@ -15,6 +15,7 @@ use Auth;
 //for sweet messege
 Use Alert;
 //
+use File;
 class IssuesController extends Controller
 {
     public function __construct()
@@ -63,12 +64,18 @@ class IssuesController extends Controller
 
     {
          // Validation
-
+         $request->validate([
+            'excelFile'=> 'required|mimes:xlsx'
+           ]);
+         
+          
+        ///
         Excel::import(new IssuesImport, $request->excelFile);
         //before return back
         Alert::success('Data import successfully', 'Try sweet Message');
        //Alert::question('Data import successfully!!!', 'Question Message');
         return back();
         //return "Data import successfully";
+        
     }
 }

@@ -13,7 +13,9 @@ protected $fillable=['name',
 'msg',
 'building_number',
 'apartment_number',
-'user_id'];
+'user_id',
+
+];
 
 
     public function user(){
