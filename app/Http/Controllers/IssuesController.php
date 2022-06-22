@@ -12,6 +12,9 @@ use Maatwebsite\Excel\Facades\Excel;
 //
 use App\User;
 use Auth;
+//for sweet messege
+Use Alert;
+//
 class IssuesController extends Controller
 {
     public function __construct()
@@ -62,7 +65,10 @@ class IssuesController extends Controller
          // Validation
 
         Excel::import(new IssuesImport, $request->excelFile);
-        
-        return "Data import successfully";
+        //before return back
+        Alert::success('Data import successfully', 'Try sweet Message');
+       //Alert::question('Data import successfully!!!', 'Question Message');
+        return back();
+        //return "Data import successfully";
     }
 }
